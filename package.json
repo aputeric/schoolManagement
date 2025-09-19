@@ -1,6 +1,7 @@
 {
-  "name": "lama-dev-next-dashboard",
+  "name": "school-dashboard",
   "version": "0.1.0",
+  
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -37,5 +38,8 @@
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5"
+  },
+   "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   }
 }
