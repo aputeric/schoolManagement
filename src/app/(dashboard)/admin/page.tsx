@@ -1,18 +1,20 @@
-import dynamic from "next/dynamic";
+import NextDynamic from "next/dynamic";
 
-// Dynamically import components that rely on the browser (charts, calendars, etc.)
-const Announcements = dynamic(() => import("@/components/Announcements"), { ssr: false });
-const AttendanceChartContainer = dynamic(() => import("@/components/AttendanceChartContainer"), { ssr: false });
-const CountChartContainer = dynamic(() => import("@/components/CountChartContainer"), { ssr: false });
-const EventCalendarContainer = dynamic(() => import("@/components/EventCalendarContainer"), { ssr: false });
-const FinanceChart = dynamic(() => import("@/components/FinanceChart"), { ssr: false });
-const UserCard = dynamic(() => import("@/components/UserCard"), { ssr: false });
+export const dynamic = "force-dynamic"; // special Next.js config (not the import)
 
-const AdminPage = ({
+// Use renamed import for client-only components
+const Announcements = NextDynamic(() => import("@/components/Announcements"), { ssr: false });
+const AttendanceChartContainer = NextDynamic(() => import("@/components/AttendanceChartContainer"), { ssr: false });
+const CountChartContainer = NextDynamic(() => import("@/components/CountChartContainer"), { ssr: false });
+const EventCalendarContainer = NextDynamic(() => import("@/components/EventCalendarContainer"), { ssr: false });
+const FinanceChart = NextDynamic(() => import("@/components/FinanceChart"), { ssr: false });
+const UserCard = NextDynamic(() => import("@/components/UserCard"), { ssr: false });
+
+export default function AdminPage({
   searchParams,
 }: {
   searchParams: { [keys: string]: string | undefined };
-}) => {
+}) {
   return (
     <div className="p-4 flex gap-4 flex-col md:flex-row">
       {/* LEFT */}
@@ -26,11 +28,9 @@ const AdminPage = ({
         </div>
         {/* MIDDLE CHARTS */}
         <div className="flex gap-4 flex-col lg:flex-row">
-          {/* COUNT CHART */}
           <div className="w-full lg:w-1/3 h-[450px]">
             <CountChartContainer />
           </div>
-          {/* ATTENDANCE CHART */}
           <div className="w-full lg:w-2/3 h-[450px]">
             <AttendanceChartContainer />
           </div>
@@ -47,6 +47,4 @@ const AdminPage = ({
       </div>
     </div>
   );
-};
-
-export default AdminPage;
+}
