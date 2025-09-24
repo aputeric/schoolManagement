@@ -5,6 +5,20 @@ import { auth } from "@clerk/nextjs/server";
 export const dynamic = "force-dynamic";
 
 const Announcements = async () => {
+
+   // Add this check at the very beginning of your component function
+  if (typeof window === 'undefined' && process.env.NEXT_PHASE === 'phase-production-build') {
+    return (
+      <div className="bg-white p-4 rounded-md">
+        <div className="flex items-center justify-between">
+          <h1 className="text-xl font-semibold">Announcements</h1>
+          <span className="text-xs text-gray-400">View All</span>
+        </div>
+        <div className="mt-4">Loading...</div>
+      </div>
+    );
+  }
+  
   const { userId, sessionClaims } = auth();
   const role = (sessionClaims?.metadata as { role?: string })?.role;
 
