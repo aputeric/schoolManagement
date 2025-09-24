@@ -9,9 +9,6 @@ import Image from "next/image";
 
 import { auth } from "@clerk/nextjs/server";
 
-// 🚨 Force dynamic rendering so build doesn’t break
-export const dynamic = "force-dynamic";
-
 type ParentList = Parent & { students: Student[] };
 
 const ParentListPage = async ({

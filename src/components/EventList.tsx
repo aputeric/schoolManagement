@@ -1,8 +1,5 @@
 import prisma from "@/lib/prisma";
 
-// 🚨 Force dynamic rendering so build doesn’t break
-export const dynamic = "force-dynamic";
-
 const EventList = async ({ dateParam }: { dateParam: string | undefined }) => {
   const date = dateParam ? new Date(dateParam) : new Date();
 

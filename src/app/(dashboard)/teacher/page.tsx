@@ -2,9 +2,6 @@ import Announcements from "@/components/Announcements";
 import BigCalendarContainer from "@/components/BigCalendarContainer";
 import { auth } from "@clerk/nextjs/server";
 
-// 🚨 Force dynamic rendering so build doesn’t break
-export const dynamic = "force-dynamic";
-
 const TeacherPage = () => {
   const { userId } = auth();
   return (

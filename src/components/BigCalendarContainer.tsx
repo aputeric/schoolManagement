@@ -2,9 +2,6 @@ import prisma from "@/lib/prisma";
 import BigCalendar from "./BigCalender";
 import { adjustScheduleToCurrentWeek } from "@/lib/utils";
 
-// 🚨 Force dynamic rendering so build doesn’t break
-export const dynamic = "force-dynamic";
-
 const BigCalendarContainer = async ({
   type,
   id,

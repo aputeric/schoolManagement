@@ -2,9 +2,6 @@ import Image from "next/image";
 import CountChart from "./CountChart";
 import prisma from "@/lib/prisma";
 
-// 🚨 Force dynamic rendering so build doesn’t break
-export const dynamic = "force-dynamic";
-
 const CountChartContainer = async () => {
   const data = await prisma.student.groupBy({
     by: ["sex"],

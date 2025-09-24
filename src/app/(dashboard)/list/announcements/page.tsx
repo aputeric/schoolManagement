@@ -8,8 +8,6 @@ import { Announcement, Class, Prisma } from "@prisma/client";
 import Image from "next/image";
 import { auth } from "@clerk/nextjs/server";
 
-// 🚨 Force dynamic rendering so build doesn’t break
-export const dynamic = "force-dynamic";
 
 type AnnouncementList = Announcement & { class: Class };
 const AnnouncementListPage = async ({
