@@ -2,6 +2,9 @@ import { UserButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
 
+// 🚨 Force dynamic rendering so build doesn’t break
+export const dynamic = "force-dynamic";
+
 const Navbar = async () => {
   const user = await currentUser();
   return (

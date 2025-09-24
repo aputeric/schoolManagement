@@ -2,6 +2,9 @@ import Image from "next/image";
 import AttendanceChart from "./AttendanceChart";
 import prisma from "@/lib/prisma";
 
+// 🚨 Force dynamic rendering so build doesn’t break
+export const dynamic = "force-dynamic";
+
 const AttendanceChartContainer = async () => {
   const today = new Date();
   const dayOfWeek = today.getDay();

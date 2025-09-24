@@ -11,6 +11,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
+// 🚨 Force dynamic rendering so build doesn’t break
+export const dynamic = "force-dynamic";
+
 const SingleStudentPage = async ({
   params: { id },
 }: {

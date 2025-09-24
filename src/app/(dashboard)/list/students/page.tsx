@@ -11,6 +11,9 @@ import Link from "next/link";
 
 import { auth } from "@clerk/nextjs/server";
 
+// 🚨 Force dynamic rendering so build doesn’t break
+export const dynamic = "force-dynamic";
+
 type StudentList = Student & { class: Class };
 
 const StudentListPage = async ({

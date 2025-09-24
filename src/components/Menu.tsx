@@ -2,6 +2,9 @@ import { currentUser } from "@clerk/nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
 
+// 🚨 Force dynamic rendering so build doesn’t break
+export const dynamic = "force-dynamic";
+
 const menuItems = [
   {
     title: "MENU",

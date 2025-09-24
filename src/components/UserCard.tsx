@@ -1,6 +1,9 @@
 import prisma from "@/lib/prisma";
 import Image from "next/image";
 
+// 🚨 Force dynamic rendering so build doesn’t break
+export const dynamic = "force-dynamic";
+
 const UserCard = async ({
   type,
 }: {

@@ -1,6 +1,9 @@
 import prisma from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 
+// 🚨 Force dynamic rendering so build doesn’t break
+export const dynamic = "force-dynamic";
+
 const Announcements = async () => {
   const { userId, sessionClaims } = auth();
   const role = (sessionClaims?.metadata as { role?: string })?.role;
