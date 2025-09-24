@@ -1,9 +1,12 @@
-import Announcements from "@/components/Announcements";
-import AttendanceChartContainer from "@/components/AttendanceChartContainer";
-import CountChartContainer from "@/components/CountChartContainer";
-import EventCalendarContainer from "@/components/EventCalendarContainer";
-import FinanceChart from "@/components/FinanceChart";
-import UserCard from "@/components/UserCard";
+import dynamic from "next/dynamic";
+
+// Dynamically import components that rely on the browser (charts, calendars, etc.)
+const Announcements = dynamic(() => import("@/components/Announcements"), { ssr: false });
+const AttendanceChartContainer = dynamic(() => import("@/components/AttendanceChartContainer"), { ssr: false });
+const CountChartContainer = dynamic(() => import("@/components/CountChartContainer"), { ssr: false });
+const EventCalendarContainer = dynamic(() => import("@/components/EventCalendarContainer"), { ssr: false });
+const FinanceChart = dynamic(() => import("@/components/FinanceChart"), { ssr: false });
+const UserCard = dynamic(() => import("@/components/UserCard"), { ssr: false });
 
 const AdminPage = ({
   searchParams,
@@ -39,7 +42,7 @@ const AdminPage = ({
       </div>
       {/* RIGHT */}
       <div className="w-full lg:w-1/3 flex flex-col gap-8">
-        <EventCalendarContainer searchParams={searchParams}/>
+        <EventCalendarContainer searchParams={searchParams} />
         <Announcements />
       </div>
     </div>
